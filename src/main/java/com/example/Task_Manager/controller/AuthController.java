@@ -26,10 +26,13 @@ public class AuthController {
 
     @PostMapping("/register")
     public String register(@RequestBody User user){
+
+        user.setRole("USER");   // ✅ THIS LINE IS MANDATORY
+
         repo.save(user);
+
         return "Registered!!";
     }
-
     @PostMapping("/login")
     public String login(@RequestBody User user) {
 
